@@ -10,7 +10,19 @@ import com.jme3.texture.Texture.WrapMode;
 
 import java.util.Scanner;
 
+
+/**
+ * Main class with terrain generation
+ */
 public class Main extends SimpleApplication {
+    /**
+     * dataReader for reading data from file
+     * dataGenerator for generating random data in file
+     * ultrasoundSpeed contains ultrasound speed value
+     * heights contains height of all area of terrain
+     * terrain contains all data of terrain
+     * material contains current material for each texture
+     */
     private DataReader dataReader;
     private DataGenerator dataGenerator;
     private float ultrasoundSpeed;
@@ -19,6 +31,11 @@ public class Main extends SimpleApplication {
     private TerrainQuad terrain;
     Material material;
 
+
+    /**
+     * Main function
+     * @param args
+     */
     public static void main(String[] args) {
         String filename = "data.txt";
         Main app = new Main();
@@ -34,12 +51,19 @@ public class Main extends SimpleApplication {
         app.start();
     }
 
+    /**
+     * Ultra sound speed initialization
+     * @param app application variable
+     */
     private void initializeUltrasoundSpeed(Main app) {
         Scanner keyboard = new Scanner(System.in);
         System.out.print("Enter an ultrasound speed : ");
         app.ultrasoundSpeed = keyboard.nextFloat();
     }
 
+    /**
+     * Initialization of the app
+     */
     @Override
     public void simpleInitApp() {
         flyCam.setMoveSpeed(85);
